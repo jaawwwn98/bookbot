@@ -26,3 +26,20 @@ def count_characters(word_list: list) -> dict[str, int]:
                 character_counts[letter] += 1
 
     return character_counts
+
+
+def format_dict(character_counts: dict) -> list[dict]:
+    formatted_list: list = []
+    for char, num in character_counts.items():
+        formatted_dict = {}
+
+        formatted_dict["char"] = char
+        formatted_dict["num"] = num
+        formatted_list.append(formatted_dict)
+
+    formatted_list.sort(reverse=True, key=sort_on)
+    return formatted_list
+
+
+def sort_on(items):
+    return items["num"]
